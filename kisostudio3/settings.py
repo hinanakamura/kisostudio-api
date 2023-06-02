@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-psc5^+j&zuu9m%^yiob4f01)%de^^!xq_ye62$)y_2(g6t^03%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'hina.pythonanywhere.com',
+    'kiso.studio',
+    'api.kiso.studio',
+]
 
 
 # Application definition
