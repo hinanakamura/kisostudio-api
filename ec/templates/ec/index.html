@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>KISO STUDIO</title>
+    </head>
+    <body>
+        <img src="/static/assets/logo-vertical.png" alt="KISO STUDIO" width="280px">
+        <section class="prose">
+            <img src="/static/assets/main-image1.jpg" alt>
+            <h2>High resolution, <br>
+            high quality</h2>
+          </section>
+          <section class="prose">
+            <h2>Water proof, <br>
+            Lightweight and durable</h2>
+            <img src="/static/assets/main-image2.jpg" alt>
+          </section>
+          {% if latest_product_list %}
+          <ul>
+            {% for product in latest_product_list  %}
+            <li><a href="">{{ product.product_name }} ¥{{ product.price }}</a></li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p>商品がありません</p>
+          {% endif %}
+          <a href="{% url 'ec:collections' %}">コレクションを見る</a>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+{% if products %}
+{% for product in products %}
+<li>{{ product.product_name }} ¥{{ product.price }}</li>
+{% endfor %}
+{% else %}
+商品はありません
+{% endif %}
