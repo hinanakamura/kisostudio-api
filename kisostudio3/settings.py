@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'ec.apps.EcConfig',
-    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +42,6 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
-ASGI_APPLICATION = "kisostudio3.asgi.application"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
