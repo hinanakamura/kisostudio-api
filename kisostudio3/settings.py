@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    "daphne",
 ]
+
+ASGI_APPLICATION = "kisostudio3.asgi.application"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
