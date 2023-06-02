@@ -27,11 +27,14 @@ SECRET_KEY = 'django-insecure-psc5^+j&zuu9m%^yiob4f01)%de^^!xq_ye62$)y_2(g6t^03%
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
     'hina.pythonanywhere.com',
     'kiso.studio',
     'api.kiso.studio',
 ]
 
+STATIC_URL = '/static/'
 
 # Application definition
 
