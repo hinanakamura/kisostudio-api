@@ -4,6 +4,8 @@ from django.db.models import Q
 from rest_framework import viewsets
 from .serializers import CategorySerializer, ProductSerializer, ImageSerializer
 from .models import CATEGORY, PRODUCT, IMAGE
+from rest_framework_api_key.permissions import HasAPIKey
+from rest_framework.permissions import IsAuthenticated
 
 def index(request):
     latest_product_list = PRODUCT.objects.order_by("-pub_date")[:3]
@@ -16,10 +18,12 @@ def collections(request):
     return render(request, "ec/collections.html", context)
 
 class CategoryViewSet(viewsets.ModelViewSet):
+    permission_classes = [HasAPIKey | IsAuthenticated]
     serializer_class = CategorySerializer
     queryset = CATEGORY.objects.all()
 
 class ProductViewSet(viewsets.ModelViewSet):
+    permission_classes = [HasAPIKey | IsAuthenticated]
     serializer_class = ProductSerializer
     queryset = PRODUCT.objects.all()
     def get_queryset(self):
@@ -30,5 +34,6 @@ class ProductViewSet(viewsets.ModelViewSet):
          
 
 class ImageViewSet(viewsets.ModelViewSet):
+    permission_classes = [HasAPIKey | IsAuthenticated]
     serializer_class = ImageSerializer
     queryset = IMAGE.objects.all()

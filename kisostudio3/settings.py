@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_api_key',
 ]
+
+API_KEY_CUSTOM_HEADER = "HTTP_X_API_KEY"
 
 
 MIDDLEWARE = [
