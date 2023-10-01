@@ -178,11 +178,19 @@ JWT_AUTH = {
 
 AUTH_USER_MODEL = 'ec.Account'
 
+# DATABASES ={
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'kisostudio',
+#         'USER': 'root',
+#         'PASSWORD': ''
+#     }
+# }
 DATABASES ={
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kisostudio',
-        'USER': 'root',
-        'PASSWORD': ''
+        'ENGINE': 'mysql84.conoha.ne.jp',
+        'NAME': 'u58ci_kisostudio',
+        'USER': 'u58ci_kisostudio',
+        'PASSWORD': '35105HIETNQ+JF2dd'
     }
 }
