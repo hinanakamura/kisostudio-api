@@ -129,6 +129,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+APPEND_SLASH = False
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -150,4 +152,37 @@ REST_FRAMEWORK = {
     # 'DEFAULT_PERMISSION_CLASSES':[
     #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     # ]
+
+    'DEFAULT_PERMISSION_CLASSES':(
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFALT_AUTHENTICATION_CLASSES':(
+        'rest_framework_jwt.authentication.JSONwebTokenAuthentication',
+    ),
+    'NON_FIELD_ERRORS_KEY': 'detail',
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail84.conoha.ne.jp'
+EMAIL_HOST_USER = 'staff@kiso.studio'
+EMAIL_HOST_PASSWORD = 'a32oih36$%'
+EMAIL_PORT = '465'
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = 'staff@kiso.studio'
+
+JWT_AUTH = {
+    'JWT_VERTIFY_EXPIRATION': False,
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+}
+
+AUTH_USER_MODEL = 'ec.Account'
+
+DATABASES ={
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'kisostudio',
+        'USER': 'root',
+        'PASSWORD': ''
+    }
 }
