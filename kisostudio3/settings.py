@@ -188,7 +188,8 @@ AUTH_USER_MODEL = 'ec.Account'
 # }
 DATABASES ={
     'default': {
-        'ENGINE': 'mysql84.conoha.ne.jp',
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'mysql84.conoha.ne.jp',
         'NAME': 'u58ci_kisostudio',
         'USER': 'u58ci_kisostudio',
         'PASSWORD': '35105HIETNQ+JF2dd'
