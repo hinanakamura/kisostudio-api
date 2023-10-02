@@ -190,7 +190,7 @@ DATABASES ={
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'hina.mysql.pythonanywhere-services.com',
-        'NAME': 'hina$default',
+        'NAME': 'kisostudio',
         'USER': 'hina',
         'PASSWORD': '35105HIETNQ+JF2dd'
     }
