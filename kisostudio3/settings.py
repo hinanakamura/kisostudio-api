@@ -189,9 +189,9 @@ AUTH_USER_MODEL = 'ec.Account'
 DATABASES ={
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'mysql84.conoha.ne.jp',
-        'NAME': 'u58ci_kisostudio',
-        'USER': 'u58ci_kisostudio',
+        'HOST': 'hina.mysql.pythonanywhere-services.com',
+        'NAME': 'hina$default',
+        'USER': 'hina',
         'PASSWORD': '35105HIETNQ+JF2dd'
     }
 }
