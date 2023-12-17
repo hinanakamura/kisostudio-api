@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='artist',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.SET_DEFAULT, to='ec.artist'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='ec.artist'),
         ),
         migrations.AlterField(
             model_name='product',
