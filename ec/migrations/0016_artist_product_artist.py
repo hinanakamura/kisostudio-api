@@ -11,6 +11,14 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.CreateModel(
+            name='ARTIST',
+            fields=[
+                ('id', models.CharField(max_length=50, primary_key=True, serialize=False)),
+                ('name', models.CharField(max_length=200)),
+                ('description', models.TextField(max_length=2000)),
+            ],
+        ),
         migrations.AddField(
             model_name='product',
             name='artist',
