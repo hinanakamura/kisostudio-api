@@ -181,20 +181,20 @@ JWT_AUTH = {
 
 AUTH_USER_MODEL = 'ec.Account'
 
-# DATABASES ={
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'kisostudio',
-#         'USER': 'root',
-#         'PASSWORD': ''
-#     }
-# }
 DATABASES ={
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'hina.mysql.pythonanywhere-services.com',
-        'NAME': 'hina$kisostudio',
-        'USER': 'hina',
-        'PASSWORD': '35105HIETNQ+JF2dd'
+        'NAME': 'kisostudio',
+        'USER': 'root',
+        'PASSWORD': ''
     }
 }
+# DATABASES ={
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST': 'hina.mysql.pythonanywhere-services.com',
+#         'NAME': 'hina$kisostudio',
+#         'USER': 'hina',
+#         'PASSWORD': '35105HIETNQ+JF2dd'
+#     }
+# }

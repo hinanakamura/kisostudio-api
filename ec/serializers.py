@@ -1,38 +1,35 @@
 from rest_framework import serializers
 from django.contrib.auth import update_session_auth_hash
-from .models import CATEGORY, PRODUCT, IMAGE, Account, AccountManager
-# from .models import CATEGORY, PRODUCT, IMAGE, USER, Account, AccountManager
+from .models import CATEGORY,ARTIST, PRODUCT, IMAGE, Account,LINK, AccountManager, GALLERY
+# from .models import CATEGORY,ARTIST, PRODUCT, IMAGE, USER, Account, AccountManager
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = CATEGORY
-        fields = (
-            "id",
-            "category_name",
-        )
+        fields = '__all__'
 
+class ArtistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ARTIST
+        fields = '__all__'
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = PRODUCT
-        fields = (
-            "id",
-            "product_name",
-            "description",
-            "stripe_id",
-            "stock_count",
-            "thumbnail",
-            "category",
-            "pub_date",
-        )
+        fields = '__all__'
 
+class LinkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LINK
+        fields = '__all__'
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = IMAGE
-        fields = (
-            "image",
-            "product",
-            "order",
-        )
+        fields = '__all__'
+
+class GallerySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GALLERY
+        fields = '__all__'
 
 # class UserSerializer(serializers.ModelSerializer):
 #     class Meta:

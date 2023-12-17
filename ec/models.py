@@ -5,12 +5,46 @@ from django.contrib.auth.models import (
 from django.core import validators
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+# from __future__ import unicode_literals
+import uuid
+
+def get_uuid():
+    """
+    uuidを戻す
+    """
+    uuid_ = uuid.uuid4()
+    print('\n### set default', uuid_)
+    return uuid_
 
 class CATEGORY(models.Model):
     id = models.AutoField(primary_key=True)
     category_name = models.CharField(max_length=200)
+    regist_date = models.DateTimeField(null=True)
     def __str__(self):
         return self.category_name
+    
+class ARTIST(models.Model):
+    id = models.AutoField(primary_key=True)
+    artist_id = models.CharField(unique=True,max_length=20)
+    name = models.CharField(max_length=200)
+    profile_picture = models.FileField(null=True)
+    description = models.TextField(max_length=2000)
+    regist_date = models.DateTimeField(null=True)
+    def __str__(self):
+        return self.name
+    
+class LINK(models.Model):
+    class Whichsite(models.TextChoices):
+        X= "X"
+        instagram= "instagram"
+        web= "web"
+    
+    id = models.AutoField(primary_key=True)
+    url=models.CharField(max_length=200)
+    site = models.CharField(choices=Whichsite.choices, max_length=15)
+    artist = models.ForeignKey(ARTIST, default=1, on_delete=models.SET_DEFAULT)
+    regist_date = models.DateTimeField(null=True)
+    
 
 class PRODUCT(models.Model):
     id = models.AutoField(primary_key=True)
@@ -19,15 +53,25 @@ class PRODUCT(models.Model):
     stripe_id = models.CharField(max_length=200)
     stock_count = models.IntegerField(default=1)
     thumbnail = models.FileField(null=True)
-    category = models.ForeignKey(CATEGORY, on_delete=models.CASCADE)
+    category = models.ForeignKey(CATEGORY, default=1,on_delete=models.SET_DEFAULT)
+    artist = models.ForeignKey(ARTIST, default=1, on_delete=models.SET_DEFAULT)
     pub_date = models.DateTimeField("date published")
     def __str__(self):
         return self.product_name
 
 class IMAGE(models.Model):
-    product = models.ForeignKey(PRODUCT, on_delete=models.CASCADE)
-    image = models.FileField(null=True)
+    id = models.AutoField(primary_key=True)
+    product = models.ForeignKey(PRODUCT, null=True, on_delete=models.SET_NULL)
+    image = models.FileField()
     order = models.IntegerField(default=1)
+    regist_date = models.DateTimeField(null=True)
+
+class GALLERY(models.Model):
+    id = models.AutoField(primary_key=True)
+    artist = models.ForeignKey(ARTIST, null=True, on_delete=models.SET_NULL)
+    image = models.FileField()
+    order = models.IntegerField(default=1)
+    regist_date = models.DateTimeField(null=True)
 
 class AccountManager(BaseUserManager):
     def create_user(self, request_data, **kwargs):
@@ -103,4 +147,5 @@ class Account(AbstractBaseUser):
     class Meta:
         db_table = 'api_user'
         swappable = 'AUTH_USER_MODEL'
+
 
