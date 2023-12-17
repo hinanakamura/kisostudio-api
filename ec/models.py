@@ -54,7 +54,7 @@ class PRODUCT(models.Model):
     stock_count = models.IntegerField(default=1)
     thumbnail = models.FileField(null=True)
     category = models.ForeignKey(CATEGORY, default=1,on_delete=models.SET_DEFAULT)
-    artist = models.ForeignKey(ARTIST, default=1, on_delete=models.SET_DEFAULT)
+    artist = models.ForeignKey(ARTIST, null=True, on_delete=models.SET_NULL)
     pub_date = models.DateTimeField("date published")
     def __str__(self):
         return self.product_name
